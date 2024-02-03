@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:4.4-focal
+    container_name: food-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/data/db
+      # - /media/christian/Windows-SSD/dump:/dump # mount the extracted mongodb dump
+      # then to seed the db initially (updates can be done incrementally later)
+      # docker exec -it food-mongodb mongorestore --drop ./dump
+
+volumes:
+  db: {}
